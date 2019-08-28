@@ -1,0 +1,42 @@
+*{
+    border : 0px;
+}
+
+html,body{
+    height: 100%;
+}
+
+#clock{
+    display : inline;
+    color: rgb(29, 109, 92);
+    background-color: rgb(209, 209, 209);
+    font-size: 10vw;
+    font-family: 'Abel', sans-serif;
+}
+
+.wrap{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.tablist {
+    height: 70px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+    background-color: white;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+}
+.aside {
+    display: flex;
+    flex: none;
+    width: 400px;
+    background-color: #bfbab078;
+}
+.main{
+    display: flex;
+    flex: 1;
+    overflow: auto;
+}
