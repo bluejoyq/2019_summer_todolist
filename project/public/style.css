@@ -1,42 +1,56 @@
 *{
     border : 0px;
+    margin : 0px;
 }
 
-html,body{
-    height: 100%;
+.flex-under{
+    display: flex;
+    flex-direction: column;
+    height: 88.3vh;
 }
 
-#clock{
-    display : inline;
+.box-1{
+    flex: 0.1;
+    background-color: rgb(255, 222, 191);
+    text-align: right;
+}
+.box-2{
+    flex: 1;
+    background-color: rgb(186, 216, 179);
+}
+.box-3{
+    flex: 0.2;
+    background-color: rgb(231, 195, 225);
+}
+
+.box-mid{
+    flex: 1;
+    background-color: rgb(223, 243, 255);
+    text-align: center;
+}
+
+#btn_add{
+    border: 2px solid rgb(214, 174, 99);
+    background-color: rgba(0,0,0,0);
+    font-size: 40px;
+    color: rgb(223, 128, 51);
+}
+
+#btn_add:hover{
+    color:rgb(56, 56, 56);
+}
+
+#date{    
+    display: inline;  
     color: rgb(29, 109, 92);
-    background-color: rgb(209, 209, 209);
-    font-size: 10vw;
+    font-size: 3vh;
     font-family: 'Abel', sans-serif;
 }
 
-.wrap{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-.tablist {
-    height: 70px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
-    background-color: white;
+#clock{
+    display: inline;
+    color: rgb(29, 109, 92);
+    font-size: 6vh;
+    font-family: 'Abel', sans-serif;
 }
 
-.content {
-    display: flex;
-    flex: 1;
-}
-.aside {
-    display: flex;
-    flex: none;
-    width: 400px;
-    background-color: #bfbab078;
-}
-.main{
-    display: flex;
-    flex: 1;
-    overflow: auto;
-}
