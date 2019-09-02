@@ -6,7 +6,7 @@
 .flex-under{
     display: flex;
     flex-direction: column;
-    height: 88.3vh;
+    height: 88.2vh;
 }
 
 .box-1{
@@ -17,6 +17,8 @@
 .box-2{
     flex: 1;
     background-color: rgb(186, 216, 179);
+    display: none;
+    z-index: 2;
 }
 .box-3{
     flex: 0.2;
@@ -37,6 +39,18 @@
 }
 
 #btn_add:hover{
+    color:rgb(56, 56, 56);
+}
+
+#btn_hide{
+    align-items: flex-end;
+    border: 2px solid rgb(214, 174, 99);
+    background-color: rgba(0,0,0,0);
+    font-size: 40px;
+    color: rgb(223, 128, 51);
+}
+
+#btn_hide:hover{
     color:rgb(56, 56, 56);
 }
 
