@@ -17,22 +17,26 @@
     </div>
     <div class ="flex-under">
         <div class="box-1">
-            <button id="btn_add">추가</button>
+            <button id="btn_add">+</button>
         </div>
-        <div class= "box-2">
-            일정이 들어갈 창.
-            <form action="/add" method="POST">
-                <input type="datetime-local" id="add_time" name="add_time" required><br>
-                <input type="text" id="add_memo" name="add_memo" placeholder="할일 메모"><br>
-                <button id="btn_submit">제출</button>
-            </form>
-            <button id="btn_hide">닫기</button>
+        <div class= "box-2"> 
+            <span class = "box-2-popup">
+                <form id="add_form">
+                    <input type="datetime-local" id="add_time" name="add_time"><br>
+                    <input type="text" id="add_memo" name="add_memo" placeholder="할일 메모"><br>
+                    <div class= "box-button">
+                        <input type="button" id="btn_submit" value="추가"></input>
+                        <input type=button id="btn_hide" value="x"></input>
+                    </div>
+                </form> 
+            </span>
+            <h1>일정이 들어갈 창.</h1>
         </div>
         <div class= "box-3">
             wq
         </div>
     </div>    
-
+    <script src="./ajax.js"></script>
     <script src="./clock.js"></script>
 </body>
 </html>

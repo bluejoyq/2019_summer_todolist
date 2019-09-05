@@ -36,9 +36,9 @@ $(document).ready(function(){
 });
 
 $("#btn_add").click(()=>{
-    $(".box-2").show();
+    $(".box-2-popup").attr('style','visibility:visible');
 }); 
 
 $("#btn_hide").click(()=>{
-    $(".box-2").hide();
+    $(".box-2-popup").attr('style','visibility:hidden');
 }); 

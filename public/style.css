@@ -10,17 +10,30 @@
 }
 
 .box-1{
-    flex: 0.1;
+    flex: 0.07;
     background-color: rgb(255, 222, 191);
     text-align: right;
 }
 .box-2{
-    display: flex;
     flex: 1;
     background-color: rgb(186, 216, 179);
-    display: none;
-    z-index: 2;
 }
+.box-2-popup{
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    height: 80px;
+    width: auto;
+    visibility: hidden;
+    text-align: center; 
+    z-index: 10;
+    background-color: rgb(207, 207, 207);
+}
+
+.box-button{
+    text-align: center;
+}
+
 .box-3{
     flex: 0.2;
     background-color: rgb(231, 195, 225);
@@ -35,7 +48,7 @@
 #btn_add{
     border: 2px solid rgb(214, 174, 99);
     background-color: rgba(0,0,0,0);
-    font-size: 40px;
+    font-size: 30px;
     color: rgb(223, 128, 51);
 }
 
@@ -44,14 +57,27 @@
 }
 
 #btn_hide{
-    align-items: flex-end;
+    display: inline-block;
     border: 2px solid rgb(214, 174, 99);
     background-color: rgba(0,0,0,0);
-    font-size: 40px;
+    font-size: 23px;
     color: rgb(223, 128, 51);
+    
 }
 
 #btn_hide:hover{
+    color:rgb(56, 56, 56);
+}
+
+#btn_submit{
+    display: inline-block;
+    border: 2px solid rgb(214, 174, 99);
+    background-color: rgba(0,0,0,0);
+    font-size: 20px;
+    color: rgb(223, 128, 51);
+}
+
+#btn_submit:hover{
     color:rgb(56, 56, 56);
 }
 
