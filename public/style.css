@@ -9,17 +9,23 @@
     height: 88.2vh;
 }
 
+.box-mid{
+    flex: 1;
+    background-color: #E7E6E4;
+    text-align: center;
+}
+
 .box-1{
     flex: 0.07;
-    background-color: rgb(255, 222, 191);
+    background-color:#EAC5A2;
     text-align: right;
 }
 .box-2{
     flex: 1;
-    background-color: rgb(186, 216, 179);
+    background-color: #F3DCBB;
 }
 .box-2-popup{
-    display: inline-block;
+    display: inline-block;  
     position: absolute;
     right: 0;
     height: 80px;
@@ -36,14 +42,11 @@
 
 .box-3{
     flex: 0.2;
-    background-color: rgb(231, 195, 225);
+    color: white;
+    background-color: #F2E8D2;
 }
 
-.box-mid{
-    flex: 1;
-    background-color: rgb(223, 243, 255);
-    text-align: center;
-}
+
 
 #btn_add{
     border: 2px solid rgb(214, 174, 99);
@@ -83,14 +86,14 @@
 
 #date{    
     display: inline;  
-    color: rgb(29, 109, 92);
+    color: #545E63;
     font-size: 3vh;
     font-family: 'Abel', sans-serif;
 }
 
 #clock{
     display: inline;
-    color: rgb(29, 109, 92);
+    color: #545E63;
     font-size: 6vh;
     font-family: 'Abel', sans-serif;
 }
