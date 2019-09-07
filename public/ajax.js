@@ -22,3 +22,20 @@ $("#btn_submit").click(()=>{
         }
     });
 });
+
+$(document).ready(()=>{
+    $ajax({
+        url:"/api/load",
+        data:{},
+        type:"GET",
+        data_type:"json",
+        success : function(return_data){
+            return_data.db.map(db=>{
+                $("#todo_list").append(<tr><td>db.time</td><td>db.memo</td><td></td><input type="button" id="db" value="삭제"></input></tr>);
+            });    
+        },
+        error : function(return_data){
+            alert(return_data);
+        }
+    })
+});

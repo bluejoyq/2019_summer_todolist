@@ -1,3 +1,4 @@
+const fs = require('fs');
 const date = new Date();
 const week = ["일","월","화","수","목","금","토"];
 
@@ -27,7 +28,8 @@ function day_count(date){
     let now_day = years + "/" + (month+1) + "/" + day + " " + week[days];
     $("#date").text(now_day);
     //$("#add_date").val(years+"-"+(month+1)+"-"+day);
-}
+};
+
 
 $(document).ready(function(){
     clock(); 
