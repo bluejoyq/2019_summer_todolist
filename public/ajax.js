@@ -1,7 +1,9 @@
+let todo_index;
+
 $("#btn_submit").click(()=>{
     const add_memo=$("#add_memo").val();
     const add_time=$("#add_time").val();
-
+    
     $(".box-2-popup").attr('style','visibility:hidden');
     $("#add_memo").val("");
     $("#add_time").val(new Date());
@@ -15,7 +17,7 @@ $("#btn_submit").click(()=>{
         data:{"memo":add_memo,"time":add_time},
         type:"POST",
         success : function(return_data){
-            alert("success");
+            location.reload();
         },
         error : function(return_data){
             alert(return_data);
@@ -23,19 +25,37 @@ $("#btn_submit").click(()=>{
     });
 });
 
+for(let index = 0; index < todo_index; index++){
+    $(`#btn_del_db_${index}`).click((index)=>{
+        $.ajax({
+            url:"/api/del",
+            type:"DELETE",
+            data: {"index":index},
+            success : function(return_data){
+                location.reload();
+            },
+            error : function(return_data){
+                alert(return_data);
+            }
+        });
+    });
+}
+
 $(document).ready(()=>{
-    $ajax({
+    $.ajax({
         url:"/api/load",
-        data:{},
         type:"GET",
-        data_type:"json",
+        data_type:"JSON",
+        async: false,
         success : function(return_data){
-            return_data.db.map(db=>{
-                $("#todo_list").append(<tr><td>db.time</td><td>db.memo</td><td></td><input type="button" id="db" value="삭제"></input></tr>);
+            todo_index = return_data.db_index;
+            return_data.db.forEach(db=>{
+                let temp_index = (db.index).toString();
+                $("#todo_list").append(`<tr><td>${db.memo}</td><td>${db.time}</td><td><input type="button" id="btn_del_db_${temp_index}" value="삭제"></td></tr>`);
             });    
         },
         error : function(return_data){
             alert(return_data);
         }
-    })
+    });
 });
