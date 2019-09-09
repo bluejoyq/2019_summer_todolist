@@ -1,5 +1,3 @@
-let todo_index;
-
 $("#btn_submit").click(()=>{
     const add_memo=$("#add_memo").val();
     const add_time=$("#add_time").val();
@@ -17,7 +15,7 @@ $("#btn_submit").click(()=>{
         data:{"memo":add_memo,"time":add_time},
         type:"POST",
         success : function(return_data){
-            location.reload();
+            location.reload(); //차후 수정바람 //웨 reload 안뒈?
         },
         error : function(return_data){
             alert(return_data);
@@ -25,22 +23,20 @@ $("#btn_submit").click(()=>{
     });
 });
 
-for(let index = 0; index < todo_index; index++){
-    $(`#btn_del_db_${index}`).click((index)=>{
-        $.ajax({
-            url:"/api/del",
-            type:"DELETE",
-            data: {"index":index},
-            success : function(return_data){
-                location.reload();
-            },
-            error : function(return_data){
-                alert(return_data);
-            }
-        });
+const do_delete=(index)=>{
+    $.ajax({
+        url:"/api/del",
+        type:"POST",
+        data: {"index":index},
+        success : function(return_data){
+            console.log('dd');
+            location.reload();
+        },
+        error : function(return_data){
+            alert(return_data);
+        }
     });
 }
-
 $(document).ready(()=>{
     $.ajax({
         url:"/api/load",
@@ -51,11 +47,12 @@ $(document).ready(()=>{
             todo_index = return_data.db_index;
             return_data.db.forEach(db=>{
                 let temp_index = (db.index).toString();
-                $("#todo_list").append(`<tr><td>${db.memo}</td><td>${db.time}</td><td><input type="button" id="btn_del_db_${temp_index}" value="삭제"></td></tr>`);
+                $("#todo_list").append(`<tr><td>${db.memo}</td><td>${db.time}</td><td><input type="button" class="btn_del_db" value="삭제" onClick="do_delete(${temp_index})"></td></tr>`);
             });    
         },
         error : function(return_data){
             alert(return_data);
         }
     });
+        
 });

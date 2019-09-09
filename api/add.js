@@ -3,8 +3,8 @@ const fs = require('fs');
 const add=(req,res)=>{
     const memo = req.body.memo;
     const time = req.body.time;
-    let new_json = new Object();
-    let new_array = new Array();
+    let new_json = {};
+    let new_array = [];
     //time이 date객체임
     //console.log(memo);
     //console.log(time.toString());
@@ -37,11 +37,11 @@ const add=(req,res)=>{
         let json = JSON.stringify(new_json,null,4);
         fs.writeFile('db.json',json,'utf8',function(err) {
             if(err) {
-                return console.log(err);
+                return err;
             }
             console.log("File saved successfully!");
         });
-        res.status(200);
+        res.status(200).end();
     });
     
 
