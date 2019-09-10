@@ -1,13 +1,10 @@
 const fs = require('fs');
 
-const add=(req,res)=>{
+const edit=(req,res)=>{
+    const index = req.body.index;
     const memo = req.body.memo;
     const time = req.body.time;
-    let new_json = {};
-    let new_array = [];
-    //time이 date객체임
-    //console.log(memo);
-    //console.log(time.toString());
+
     const ReadJson=()=>{
         return new Promise((resolve,reject)=>{
             fs.readFile('./db.json','utf8',(err,data)=>{
@@ -18,23 +15,15 @@ const add=(req,res)=>{
             });
         });
     }
+
     const EditJSON=(json_data)=>{
         return new Promise((resolve,reject)=>{
-            let temp_json = new Object();
-            let db_index = json_data.db_index;
-            temp_json.index = db_index;
-            temp_json.time = time;
-            temp_json.memo = memo;
-            db_index++;       
-            json_data.db.forEach(db=>{
-                new_array.push(db);
-            });
-            new_array.push(temp_json);
-            
-            new_json.db_index = db_index;
-            new_json.db = new_array;
-
-            let json = JSON.stringify(new_json,null,4);
+            for(let i = 0; i < json_data.db.length; i++){
+                if(json_data.db[i].index == index)
+                    json_data.db[i].time = time;
+                    json_data.db[i].memo = memo;
+            }
+            let json = JSON.stringify(json_data,null,4);
             fs.writeFile('db.json',json,'utf8',function(err) {
                 if(err) {
                     return err;
@@ -42,8 +31,8 @@ const add=(req,res)=>{
                 console.log("File saved successfully!");
             });
             resolve();
-        }     
-    )};
+        });
+    }
     ReadJson()
     .then(EditJSON)
     .then(()=>{
@@ -51,4 +40,5 @@ const add=(req,res)=>{
     });
 };
 
-module.exports=add; 
+
+module.exports=edit;

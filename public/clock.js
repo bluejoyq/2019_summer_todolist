@@ -43,3 +43,7 @@ $("#btn_add").click(()=>{
 $("#btn_hide").click(()=>{
     $(".box-2-popup").attr('style','visibility:hidden');
 }); 
+
+$("#btn_hide_edit").click(()=>{
+    $("#edit-popup").attr('style','visibility:hidden');
+});

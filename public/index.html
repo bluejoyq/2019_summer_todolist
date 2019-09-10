@@ -31,12 +31,17 @@
                 </form> 
             </span>
             <h1>현재 일정 목록</h1>
+            <div id="edit-popup">
+                <form id="edit_form">
+                    <input type="datetime-local" id="edit_time" name="edit_time"><br>
+                    <input type="text" id="edit_memo" name="edit_memo" placeholder="할일 메모"><br>
+                    <div class= "box-button">
+                            <input type="button" id="btn_edit" value="완료"></input>
+                            <input type=button id="btn_hide_edit" value="x"></input>
+                    </div>
+                </form>
+            </div>
             <table id = "todo_list">
-                <tr>
-                    <td>할일</td>
-                    <td>시간</td>
-                    <td>삭제</td>
-                </tr>
             </table>
         </div>
         <div class= "box-3">

@@ -8,7 +8,7 @@ app.use(morgan('[:date[iso]] :method :status :url :response-time(ms) :user-agent
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname+"/public"));
-app.use('/api',require('./api'));
+app.use('/api',require('./api'));   
 app.use('/',require('./router'));
 
 app.listen(3000,()=>{

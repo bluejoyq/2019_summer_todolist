@@ -1,0 +1,27 @@
+{
+  "name": "2019_summer_web_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "jsdom": "^15.1.1",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluejoyq/2019_summer_todolist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bluejoyq/2019_summer_todolist/issues"
+  },
+  "homepage": "https://github.com/bluejoyq/2019_summer_todolist#readme"
+}
