@@ -1,6 +1,10 @@
 *{
     border : 0px;
     margin : 0px;
+
+}
+body{
+    background-color: #E7E6E4;
 }
 
 .box-add-popup{
@@ -20,9 +24,23 @@
 
     border-left: 3px ridge #545E63;
 }
+#popup-main{
+    margin: 15px 0;
+}
+#text-add{
+    margin: 2vh 0;
+    font-family: 'Abel', sans-serif;
+    font-size: 3vmin;
+}
+.add-field{
+    width: 80%;
+    line-height: 10vh;
+    border: 1px solid rgb(0, 0, 0); 
+    border-radius: 4px;
 
-#add-form{
-    margin-top: 15px;
+    font-size: 3vmin;
+    text-align: center;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .box-button{
@@ -36,7 +54,7 @@
 
     text-align: center;
     font-family: 'Nanum Gothic', sans-serif;
-    font-size: 23px;
+    font-size: 3vmax;
     font-weight: bold;
     color: rgb(49, 47, 47);
 }
@@ -48,6 +66,7 @@
 
 
 .box-top{
+    margin-top: 2vh;
     background-color: #E7E6E4;
     text-align: center;
 }
@@ -59,25 +78,24 @@
 }
 #date{
     display: inline;
-    font-size: 3vh;
+    font-size: 4vh;
 }
 #clock{
     display: inline;
-    font-size: 6vh;
+    font-size: 7vh;
 }
 
 .box-btn-add{
     display: inline-block;
     position: absolute;
-    right: 2.5vw;
-    top: 1.8vh;
+    right: 3vw;
+    top: 2.7vh;
     text-align: right;
 }
 
 #btn-add{
     width: 22vh;
     height: 8vh;
-    /* margin-right: 5vw; */
     border: 3px double #545E63;
     background-color: rgba(0,0,0,0);
 
@@ -90,30 +108,40 @@
 
 #btn-add:hover{
     color:rgb(0, 0, 0);
-    border: 3px solid #545E63;
+    border: 3px inset #545E63;
 }
 
-
-.box-2{
-    background-color: #F3DCBB;
+.box-main{
+    background-color: #E7E6E4;
+    margin : 1vh 3vw;
+    border-top : 1vh dashed #545E63;
 }
 
-.box-3{
-    color: rgb(19, 16, 16);
-    background-color: #F2E8D2;
+.title-list{
+    margin: 2vh 0;
+    font-family: 'Abel', sans-serif;
+    font-size: 3vmax;
+    font-weight: bold;
+    text-align: center;
 }
 
-#edit-popup{    
-    display: inline-block;  
-    position: absolute;
-    height: 300px;
-    width: auto;
-    left: 50%; 
-    transform: translateX(-50%);
-    visibility: hidden;
-    text-align: center; 
-    z-index: 12;
-    background-color: rgb(180, 169, 169);
+.box-list{
+    text-align: center;
+    color: #545E63;   
+    font-size: 3vmin;
+    font-family: 'Abel', sans-serif;
+}
+#todo-list{
+    width: 100%;  
+    border: 1px solid black;
+}
+
+#todo-list th{
+    border: 1px solid black;
+}
+
+#todo-list tr{
+    border: 1px solid red;
 }
 
 

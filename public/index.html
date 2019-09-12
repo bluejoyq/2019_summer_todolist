@@ -6,15 +6,18 @@
     <link rel = "stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Abel|Nanum+Gothic&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>TODO_LIST</title>
 </head>
 <body>
     <span class = "box-add-popup">
         <h1 id="popup-main">추가하기</h1>
         <form id="add-form" autocomplete="off">
-            <span>날짜</span><input type="text" id="add-time" readonly='true'><br>
-            <span>할일</span><input type="text" id="add-title" placeholder="할일"><br>
-            <span>메모</span><input type="text" id="add-memo" placeholder="메모">
+            <div id="text-add">날짜</div>
+            <input type="text" class = "add-field" id="add-time" readonly='true'><br>
+            <div id="text-add">할일</div>
+            <input type="text" class = "add-field" id="add-title" placeholder="할일"><br>
+            <div id="text-add">메모</div>
+            <input type="text" class = "add-field" id="add-memo" placeholder="메모">
             <div class= "box-button">
                 <input type="button" class = "btn-mini" id="btn-submit" value="추가">
                 <input type=button class = "btn-mini" id="btn-hide" value="닫기">
@@ -31,13 +34,13 @@
         </span>
     </div>
     <div class ="box-main">  
-        <div class= "box-2">  
-            <h1>현재 일정 목록</h1>
+        <div class= "box-list">  
+            <div class = "title-list">현재 일정 목록</div>
             <table id = "todo-list">
+                <tr><td>할일</td><td>메모</td><td>시간</td><td>삭제</td><td>수정</td></tr>
             </table>
         </div>
         <div class= "box-3">
-            ㅎㅇ
         </div>
     </div>    
     <script src="./ajax.js"></script>
