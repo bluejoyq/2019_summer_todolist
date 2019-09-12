@@ -6,11 +6,15 @@ const do_load=()=>{
         async: false,
         success : function(return_data){
             todo_index = return_data.db_index;
-            $("#todo_list").html("");
-            $("#todo_list").append("<tr><td>할일</td><td>시간</td><td>삭제</td><td>수정</td></tr>");
+            $("#todo-list").html("");
+            $("#todo-list").append("<tr><td>할일</td><td>메모</td><td>시간</td><td>삭제</td><td>수정</td></tr>");
             return_data.db.forEach(db=>{
                 let temp_index = (db.index).toString();
-                $("#todo_list").append(`<tr><td>${db.memo}</td><td>${db.time}</td><td><input type="button" class="btn_del_db" value="삭제" onClick="do_delete(${temp_index})"></td><td><input type="button" class="btn_edit_db" value="수정" onClick="do_edit(${temp_index})"></td></tr>`);
+                $("#todo-list").append(`<tr><td><span class="db-text" id="db-title-${temp_index}">${db.title}</span></td>
+                <td><span class="db-text" id="db-memo-${temp_index}">${db.memo}</span></td>
+                <td><span class="db-text" id="db-time-${temp_index}">${db.time}</span></td>
+                <td><input type="button" class="btn-mini" value="삭제" onClick="do_delete(${temp_index})"></td>
+                <td><input type="button" class="btn-mini" value="수정" onClick="do_edit(${temp_index})"></td></tr>`);
             });    
         },
         error : function(return_data){
@@ -35,51 +39,57 @@ const do_delete=(index)=>{
 
 let index_edit;
 const do_edit=(index)=>{
-    $("#edit-popup").attr('style','visibility:visible');
+    $(".box-add-popup").attr('style','visibility:visible');
+    $("#popup-main").text("수정하기");
+    $("#btn-submit").val("수정");
+    $("#add-title").val($(`#db-title-${index}`).text());
+    $("#add-memo").val($(`#db-memo-${index}`).text());
+    $("#add-time").val($(`#db-time-${index}`).text());
     index_edit = index;
 };
 
-$("#btn_edit").click(()=>{
-    const edit_memo=$("#edit_memo").val();
-    const edit_time=$("#edit_time").val();
+$("#btn-submit").click(()=>{
+    const title=$("#add-title").val();
+    const memo=$("#add-memo").val();
+    const time=$("#add-time").val();
     
-    $.ajax({
-        url:"/api/edit",
-        type:"POST",
-        data:{"index":index_edit,"memo":edit_memo,"time":edit_time},
-        success : function(return_data){
-            do_load();
-            $("#edit-popup").attr('style','visibility:hidden');
-        },
-        error : function(return_data){
-            alert(return_data);
-        }
-    });
-});
-
-$("#btn_submit").click(()=>{
-    const add_memo=$("#add_memo").val();
-    const add_time=$("#add_time").val();
+    $(".box-add-popup").attr('style','visibility:hidden');
+    $("#add-title").val("");
+    $("#add-memo").val("");
+    $("#add-time").val("");
     
-    $(".box-2-popup").attr('style','visibility:hidden');
-    $("#add_memo").val("");
-    $("#add_time").val(new Date());
-    
-    if(add_time==""){
-        alert("날짜를 다 채워주세요!");
+    if(time==""){
+        alert("날짜를 채워주세요!");
         return false;
     }
-    $.ajax({
-        url:"/api/add",
-        data:{"memo":add_memo,"time":add_time},
-        type:"POST",
-        success : function(return_data){
-            do_load();
-        },
-        error : function(return_data){
-            alert(return_data);
-        }
-    });
+
+    if($("#popup-main").text()=="추가하기"){
+        $.ajax({
+            url:"/api/add",
+            data:{"title":title,"memo":memo,"time":time},
+            type:"POST",
+            success : function(return_data){
+                do_load();
+            },
+            error : function(return_data){
+                alert(return_data);
+            }
+        });
+    }
+    else{
+        $.ajax({
+            url:"/api/edit",
+            type:"POST",
+            data:{"index":index_edit,"title":title,"memo":memo,"time":time},
+            success : function(return_data){
+                do_load();
+            },
+            error : function(return_data){
+                alert(return_data);
+            }
+        });
+    }
+    
 }); 
 
 $(document).ready(()=>{

@@ -2,6 +2,7 @@ const fs = require('fs');
 
 const edit=(req,res)=>{
     const index = req.body.index;
+    const title = req.body.title;
     const memo = req.body.memo;
     const time = req.body.time;
 
@@ -20,8 +21,10 @@ const edit=(req,res)=>{
         return new Promise((resolve,reject)=>{
             for(let i = 0; i < json_data.db.length; i++){
                 if(json_data.db[i].index == index)
-                    json_data.db[i].time = time;
+                    json_data.db[i].title = title;
                     json_data.db[i].memo = memo;
+                    json_data.db[i].time = time;
+                    
             }
             let json = JSON.stringify(json_data,null,4);
             fs.writeFile('db.json',json,'utf8',function(err) {

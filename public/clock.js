@@ -36,14 +36,21 @@ $(document).ready(function(){
     setInterval(clock,1000);
 });
 
-$("#btn_add").click(()=>{
-    $(".box-2-popup").attr('style','visibility:visible');
+$("#btn-add").click(()=>{
+    $(".box-add-popup").attr('style','visibility:visible');
+    $("#popup-main").text("추가하기");
+    $("#btn-submit").val("추가");
+    $("#add-title").val("");
+    $("#add-memo").val("");
+    $("#add-time").val("");
 }); 
 
-$("#btn_hide").click(()=>{
-    $(".box-2-popup").attr('style','visibility:hidden');
+$("#btn-hide").click(()=>{
+    $(".box-add-popup").attr('style','visibility:hidden');
+    $("#add_memo").val("");
+    $("#add_time").val("");
 }); 
 
-$("#btn_hide_edit").click(()=>{
-    $("#edit-popup").attr('style','visibility:hidden');
+$("#add-time").datepicker({
+    dateFormat: 'yy-mm-dd'
 });

@@ -1,47 +1,39 @@
 <!DOCTYPE html>
 <head>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <link rel = "stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Abel|Nanum+Gothic&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
 <body>
-    <div class = "box-mid">
-        <div>
-            <p class="date" id ="date">2013년 10월 10일</p>
-        </div>
-        <div>            
-            <p class="clock" id="clock">00:00:00</p>
-        </div>
-    </div>
-    <div class ="flex-under">
-        <div class="box-1">
-            <button id="btn_add">+</button>
-        </div>
-        <div class= "box-2"> 
-            <span class = "box-2-popup">
-                <form id="add_form">
-                    <input type="datetime-local" id="add_time" name="add_time"><br>
-                    <input type="text" id="add_memo" name="add_memo" placeholder="할일 메모"><br>
-                    <div class= "box-button">
-                        <input type="button" id="btn_submit" value="추가"></input>
-                        <input type=button id="btn_hide" value="x"></input>
-                    </div>
-                </form> 
-            </span>
-            <h1>현재 일정 목록</h1>
-            <div id="edit-popup">
-                <form id="edit_form">
-                    <input type="datetime-local" id="edit_time" name="edit_time"><br>
-                    <input type="text" id="edit_memo" name="edit_memo" placeholder="할일 메모"><br>
-                    <div class= "box-button">
-                            <input type="button" id="btn_edit" value="완료"></input>
-                            <input type=button id="btn_hide_edit" value="x"></input>
-                    </div>
-                </form>
+    <span class = "box-add-popup">
+        <h1 id="popup-main">추가하기</h1>
+        <form id="add-form" autocomplete="off">
+            <span>날짜</span><input type="text" id="add-time" readonly='true'><br>
+            <span>할일</span><input type="text" id="add-title" placeholder="할일"><br>
+            <span>메모</span><input type="text" id="add-memo" placeholder="메모">
+            <div class= "box-button">
+                <input type="button" class = "btn-mini" id="btn-submit" value="추가">
+                <input type=button class = "btn-mini" id="btn-hide" value="닫기">
             </div>
-            <table id = "todo_list">
+        </form> 
+    </span>
+    <div class = "box-top">
+        <span class ="time">
+            <p id ="date">2013/10/10 월</p><br>          
+            <p id="clock">00:00:00</p>
+        </span>
+        <span class="box-btn-add">
+            <button id="btn-add">일정 추가</button>
+        </span>
+    </div>
+    <div class ="box-main">  
+        <div class= "box-2">  
+            <h1>현재 일정 목록</h1>
+            <table id = "todo-list">
             </table>
         </div>
         <div class= "box-3">
